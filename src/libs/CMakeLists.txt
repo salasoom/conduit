@@ -45,7 +45,7 @@
 ################################
 # Build ZFP
 ################################
-if(ENABLE_ZFP)
+if(ZFP_FOUND)
   add_subdirectory(zfp-0.5.5)
 endif()
 
