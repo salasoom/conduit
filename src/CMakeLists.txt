@@ -73,6 +73,8 @@ option(ENABLE_PYTHON      "Build Python Support"        OFF)
 option(ENABLE_FORTRAN     "Build Fortran  support"      OFF)
 
 option(ENABLE_MPI         "Build MPI Support"           OFF)
+# TODO: turn off by default after deciding how ZFP will be bundled/found
+option(ENABLE_ZFP         "Build ZFP Support"           ON)
 
 
 ################################
