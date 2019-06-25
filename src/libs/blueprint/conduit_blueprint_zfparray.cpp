@@ -54,7 +54,7 @@
 #include "conduit_blueprint_zfparray.hpp"
 #include "conduit_log.hpp"
 
-#include "../zfp-0.5.5/include/zfp.h"
+#include "zfp.h"
 
 using namespace conduit;
 // Easier access to the Conduit logging functions

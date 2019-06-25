@@ -55,8 +55,14 @@ set(BLUEPRINT_TESTS t_blueprint_smoke
                     t_blueprint_mesh_generate
                     t_blueprint_mcarray_verify
                     t_blueprint_mesh_examples
-                    t_blueprint_mcarray_examples
-                    t_blueprint_zfp)
+                    t_blueprint_mcarray_examples)
+
+if(ZFP_FOUND)
+    message(STATUS "Adding blueprint lib Zfp unit tests")
+    set(BLUEPRINT_TESTS ${BLUEPRINT_TESTS} t_blueprint_zfp)
+else()
+    message(STATUS "Zfp disabled: Skipping conduit blueprint zfp tests")
+endif()
 
 
 ################################

@@ -63,7 +63,6 @@ set(blueprint_headers
     conduit_blueprint_mesh_examples.hpp
     conduit_blueprint_mcarray.hpp
     conduit_blueprint_mcarray_examples.hpp
-    conduit_blueprint_zfparray.hpp
     ${CMAKE_CURRENT_BINARY_DIR}/conduit_blueprint_exports.h
 )
 
@@ -86,7 +85,6 @@ set(blueprint_sources
     conduit_blueprint_mesh_examples.cpp
     conduit_blueprint_mcarray.cpp
     conduit_blueprint_mcarray_examples.cpp
-    conduit_blueprint_zfparray.cpp
     )
 
 #
@@ -114,6 +112,14 @@ if(FORTRAN_FOUND)
 
 endif()
 
+set(conduit_blueprint_deps conduit)
+
+if(ZFP_FOUND)
+  list(APPEND blueprint_headers "conduit_blueprint_zfparray.hpp")
+  list(APPEND blueprint_sources "conduit_blueprint_zfparray.cpp")
+  list(APPEND conduit_blueprint_deps zfp)
+endif()
+
 #
 # Setup conduit blueprint lib
 #
@@ -121,7 +127,7 @@ add_compiled_library(NAME conduit_blueprint
                      EXPORT conduit
                      HEADERS ${blueprint_headers} ${blueprint_c_headers} 
                      SOURCES ${blueprint_sources} ${blueprint_c_sources} ${blueprint_fortran_sources}
-                     DEPENDS_ON conduit zfp
+                     DEPENDS_ON ${conduit_blueprint_deps}
                      HEADERS_DEST_DIR include/conduit)
 
 
